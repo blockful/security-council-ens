@@ -65,6 +65,10 @@ The Security Council is expected to act only in emergencies and uphold the inter
 
 The Security Council members will be the same signers for the veto.ensdao.eth, their identities are known, have signed a pledge to uphold the ENS constitution, and reside in countries with a solid legal system.
 
+## Security Audit
+
+Nethermind Security conducted a security review of the `SecurityCouncil` contract (NM-0945), reporting zero points of attention. The full report is available at [audits/2026-06-05-Nethermind-Security-Review.pdf](audits/2026-06-05-Nethermind-Security-Review.pdf).
+
 ## License
 
 This contract is available under the MIT license.
