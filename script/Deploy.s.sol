@@ -12,11 +12,13 @@ import { IRegistry } from "../src/interfaces/IRegistry.sol";
 ///
 /// Required env vars:
 ///   - SECURITY_COUNCIL_MULTISIG: address of the 4/8 Security Council multisig
-///   - PRIVATE_KEY: deployer key (broadcast)
+///
+/// Deployed from a Ledger hardware wallet (dev.blockful.eth, derivation index 13).
 ///
 /// Usage:
 ///   forge script script/Deploy.s.sol:Deploy \
 ///     --rpc-url $RPC_URL_MAINNET \
+///     --ledger --mnemonic-indexes 13 --sender $DEPLOYER \
 ///     --broadcast \
 ///     --verify \
 ///     --etherscan-api-key $ETHERSCAN_API_KEY
@@ -32,9 +34,7 @@ contract Deploy is Script {
         address multisig = vm.envAddress("SECURITY_COUNCIL_MULTISIG");
         require(multisig != address(0), "Deploy: multisig is zero address");
 
-        uint256 deployerKey = vm.envUint("PRIVATE_KEY");
-
-        vm.startBroadcast(deployerKey);
+        vm.startBroadcast();
         securityCouncil = new SecurityCouncil(multisig, ITimelock(payable(ENS_TIMELOCK)), IRegistry(ENS_REGISTRY));
         vm.stopBroadcast();
 

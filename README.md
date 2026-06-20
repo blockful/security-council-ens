@@ -53,6 +53,8 @@ forge script script/Deploy.s.sol:Deploy \
   --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
+The contract is deployed and verified on mainnet at [`0xdededd439ecf711e61f5aecef631579dba2c65db`](https://etherscan.io/address/0xdededd439ecf711e61f5aecef631579dba2c65db#code).
+
 After deploying, the DAO grants `PROPOSER_ROLE` to the new address with a proposal.
 
 ## Security Considerations
